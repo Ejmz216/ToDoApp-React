@@ -1,0 +1,43 @@
+.TodoCounter {
+  font-size: 24px;
+  text-align: center;
+  margin: 0;
+  padding: 48px;
+  
+}
+:root {
+
+  --color-purple: #DA54D8;
+  --color-blue: #0092F4;
+  --color-green: #20DC86;
+}
+
+h1{
+  /* font-size: 50px; */
+  text-align: left;
+  margin: 0;
+  padding: 20px 20px 0px 50px;
+ 
+  font-size: 55px;
+  background: -webkit-linear-gradient(#fdf61e, #ff2990);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2{
+  font-size: 20px;
+  text-align: left;
+  margin: 0;
+  padding: 0px 20px 0px 160px;
+  color: black;
+}
+
+.todoTitle{
+  margin: 0;
+  font-size: 25px;
+  background: -webkit-linear-gradient(#20dc86, #0092f4, #da54d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
