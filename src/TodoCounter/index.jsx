@@ -1,4 +1,5 @@
 import React from 'react';
+import { TodoContext } from '../TodoContext';
 import './TodoCounter.css';
 // Style___________________________________________________________________
 var today = new Date();
@@ -21,12 +22,13 @@ if (currentTime < 12) {
 var now = today.toLocaleDateString('en-BR', options);
 //_________________________________________________________________________
 
-function TodoCounter({ total, completed }) {
+function TodoCounter() {
+  const { totalTodos, completedTodos } = React.useContext(TodoContext);
   return (
     <>
       <h1>{greeting}!</h1>
       <h2>{now}</h2>
-      <h2 className="TodoCounter">You have completed {completed} out of {total} <b className='todoTitle'>ToDOs</b></h2>
+      <h2 className="TodoCounter">You have completed {completedTodos} out of {totalTodos} <b className='todoTitle'>ToDOs</b></h2>
     </>
   );
 }

@@ -10,6 +10,15 @@ import { CreateTodoButton } from '../CreateTodoButton';
 import './App.css';
 
 function AppUI() {
+    const {
+        error,
+        loading,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+
+    } = React.useContext(TodoContext);
+
     return (
         <React.Fragment>
             {/* <MainPage> */}
@@ -17,37 +26,29 @@ function AppUI() {
             {/* <div className='leftPannel'></div> */}
             <TodoHeader>
 
-                <TodoSearch/>
-                <TodoCounter/>
+                <TodoSearch />
+                <TodoCounter />
                 {/* Podemos acceder a nuestro contexto con el consumer */}
-                <TodoContext.Consumer>
-                    {({
-                        error,
-                        loading,
-                        searchedTodos,
-                        completeTodo,
-                        deleteTodo,
-                    }) => (
-                        <TodoList>
-                            {/*Mostramos un mensaje en caso de que ocurra algún error*/}
-                            {error && <p>There was an error...</p>}
-                            {/* Mostramos un mensaje de cargando, cuando la aplicación está cargando lo sdatos */}
-                            {loading && <p>Loading, don't desperate...</p>}
-                            {/* Si terminó de cargar y no existen TODOs, se muestra un mensaje para crear el primer TODO */}
-                            {(!loading && !searchedTodos.length && !error) && <p>Create your first TODO!</p>}
 
-                            {searchedTodos.map(todo => (
-                                <TodoItem
-                                    key={todo.text}
-                                    text={todo.text}
-                                    completed={todo.completed}
-                                    onComplete={(() => completeTodo(todo.text))}
-                                    onDelete={(() => deleteTodo(todo.text))}
-                                />
-                            ))}
-                        </TodoList>
-                    )}
-                </TodoContext.Consumer>
+                <TodoList>
+                    {/*Mostramos un mensaje en caso de que ocurra algún error*/}
+                    {error && <p>There was an error...</p>}
+                    {/* Mostramos un mensaje de cargando, cuando la aplicación está cargando lo sdatos */}
+                    {loading && <p>Loading, don't desperate...</p>}
+                    {/* Si terminó de cargar y no existen TODOs, se muestra un mensaje para crear el primer TODO */}
+                    {(!loading && !searchedTodos.length && !error) && <p>Create your first TODO!</p>}
+
+                    {searchedTodos.map(todo => (
+                        <TodoItem
+                            key={todo.text}
+                            text={todo.text}
+                            completed={todo.completed}
+                            onComplete={(() => completeTodo(todo.text))}
+                            onDelete={(() => deleteTodo(todo.text))}
+                        />
+                    ))}
+                </TodoList>
+
                 <CreateTodoButton />
             </TodoHeader>
 
