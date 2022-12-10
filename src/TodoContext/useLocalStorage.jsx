@@ -9,8 +9,7 @@ function useLocalStorage(itemName, initialValue) {
     React.useEffect(() => {
         setTimeout(() => {
             try {
-                // El elemento o "datos" a guardar le ponemos versión, 
-                //  en caso de que cambie la escructura del objeto más adelante  
+                
                 const localStorageItem = localStorage.getItem(itemName);
                 let parsedItem;
 
