@@ -23,7 +23,7 @@
 .TodoSearch:focus {
   outline-color: #61DAFA;
 }
-p{
+.firstMsg{
   font-size: 20px;
   margin: 0;
   padding: 10px;

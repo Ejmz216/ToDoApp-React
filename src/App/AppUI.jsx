@@ -8,6 +8,7 @@ import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
 import './App.css';
+import { Modal } from "../Modal";
 
 function AppUI() {
     const {
@@ -16,19 +17,18 @@ function AppUI() {
         searchedTodos,
         completeTodo,
         deleteTodo,
+        openModal,
+        setOpenModal,
 
     } = React.useContext(TodoContext);
 
     return (
         <React.Fragment>
-            {/* <MainPage> */}
 
-            {/* <div className='leftPannel'></div> */}
             <TodoHeader>
 
                 <TodoSearch />
                 <TodoCounter />
-                {/* Podemos acceder a nuestro contexto con el consumer */}
 
                 <TodoList>
                     {/*Mostramos un mensaje en caso de que ocurra algún error*/}
@@ -36,7 +36,7 @@ function AppUI() {
                     {/* Mostramos un mensaje de cargando, cuando la aplicación está cargando lo sdatos */}
                     {loading && <p>Loading, don't desperate...</p>}
                     {/* Si terminó de cargar y no existen TODOs, se muestra un mensaje para crear el primer TODO */}
-                    {(!loading && !searchedTodos.length && !error) && <p>Create your first TODO!</p>}
+                    {(!loading && !searchedTodos.length && !error) && <p className="firstMsg">Create your first TODO!</p>}
 
                     {searchedTodos.map(todo => (
                         <TodoItem
@@ -49,7 +49,16 @@ function AppUI() {
                     ))}
                 </TodoList>
 
-                <CreateTodoButton />
+                {!!openModal && (
+                    <Modal>
+                        <p className="titleNewTodo">{searchedTodos[0]?.text}</p>
+                    </Modal>
+                )}
+                <CreateTodoButton
+                    setOpenModal={setOpenModal}
+                    openModal={openModal} 
+                />
+
             </TodoHeader>
 
             {/* </MainPage> */}
