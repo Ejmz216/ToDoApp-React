@@ -6,9 +6,11 @@ import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
+import { Modal } from "../Modal";
+import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import './App.css';
-import { Modal } from "../Modal";
+
 
 function AppUI() {
     const {
@@ -51,12 +53,12 @@ function AppUI() {
 
                 {!!openModal && (
                     <Modal>
-                        <p className="titleNewTodo">{searchedTodos[0]?.text}</p>
+                        <TodoForm />
                     </Modal>
                 )}
                 <CreateTodoButton
                     setOpenModal={setOpenModal}
-                    openModal={openModal} 
+                    openModal={openModal}
                 />
 
             </TodoHeader>

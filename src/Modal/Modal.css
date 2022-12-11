@@ -1,5 +1,6 @@
 .ModalBackground {
-    background: rgba(32, 35, 41, .8);
+    background: rgb(8, 244, 213);
+    background: linear-gradient(208deg, rgba(8, 244, 213, .5) 18%, rgba(77, 128, 251, 1) 70%);
     position: fixed;
     top: -10px;
     left: -10px;
