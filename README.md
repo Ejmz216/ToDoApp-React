@@ -1,4 +1,4 @@
-# TodoApp React.js
+# Todo App React.js
 
 # Documentación
 
@@ -34,219 +34,7 @@
     ```
     
 
-# Primeros pasos con React
-
-## Cómo aprender React.js
-
-## ¿Qué es React.js?
-
-React es una herramienta de JavaScript en el front end que nos ayuda a construir la parte visual de nuestras aplicaciones web, las interfaces con las que van a interactuar nuestros usuarios.
-
-React es una librería progresiva, esto porque puedes hacer desde una página sencilla hasta poder desarrollar aplicaciones gigantes, y llegar a convertirse en un framework en conjunto de muchas herramientas que existen a su alrededor.
-
-Mayor demanda laboral
-
-Seguir escuela en orden
-
-También podemos profundizar en js y react al mismo tiempo. Hay diferentes opiniones al respecto
-
-La recomendación de Juan es manejar estos temas
-
-- [HTML y CSS](https://platzi.com/cursos/html-css/)
-- [JavaScript](https://platzi.com/cursos/basico-javascript/)
-- [ECMAScript 6+](https://platzi.com/cursos/ecmascript-6/)
-- [Clousures y Scope](https://platzi.com/cursos/scope/)
-- [POO](https://platzi.com/cursos/javascript-poo/)
-- [JavaScrip Engine](https://platzi.com/cursos/javascript-navegador/)
-- [Asincronismo](https://platzi.com/cursos/asincronismo-js/)
-- [Peticiones a API](https://platzi.com/cursos/api/)
-- [Manipulación del DOM](https://platzi.com/cursos/dom/)
-- [Frameworks y librerías de JavaScript](https://platzi.com/cursos/frameworks-javascript/)
-
-React es mucho más libreria que framework, pero ninguna herramienta es 100% framework o librería.
-
-## Cuándo usar React.js
-
-Para saber cuándo usar React es necesario conocer el **tipo de proyecto** que estás desarrollando. Conociendo los alcances actuales y los futuros, podrás tener un panorama completo de las necesidades que vas a cubrir y cuáles son las funciones básicas que debe tener para ser un MVP.
-
-React es muy útil cuando queremos construir rápidamente la primera versión funcional de una aplicación web sin sacrificar su **escalabilidad**. Si no necesitamos escalarla después, no es necesario utilizar React, podemos utilizar JavaScript vanilla.
-
-- **¿Qué es un MVP?**
-    
-    MVP (Minimum Viable Product - Producto Mínimo Viable): se refiere a construir funcionalidades pequeñas que sean completas para que podamos lanzarla y medir su impacto y decidir si seguir ese camino o probar otra cosa.
-    
-
-### Flujos de trabajo para aplicaciones web
-
-**Modelo de cascada**
-
-Cada equipo tiene un tiempo para hacer todo su respectivo trabajo para construir una aplicación.
-
-Es problemático porque el esfuerzo puede ser en vano porque no se tiene un feedback hasta que se termina de construir la app.
-
-![Untitled](TodoApp%20React%20js%20534285bcbc3c4c0b92db602e051818d4/Untitled.png)
-
-**Modelo del ciclo MVP iterativo**
-
-El modelo del ciclo MVP se refiere a que cada equipo se enfocará en ciclos pequeños para construir partes más pequeñas de una app que en conjunto se puedan ir ensamblando para hacer la app completa.
-
-Resuelve el problema del modelo anterior, aquí se recibe el feedback al terminar cada pequeño ciclo, recibiendo así el feedback de manera más inmediata que antes.
-
-Podemos hacer esfuerzos cortos.
-
-![Untitled](TodoApp%20React%20js%20534285bcbc3c4c0b92db602e051818d4/Untitled%201.png)
-
-Debemos crear funcionalidades completas, no solamente el footer o header
-Escoger el problema más crucial para que la app lo resuelva
-
-![Untitled](TodoApp%20React%20js%20534285bcbc3c4c0b92db602e051818d4/Untitled%202.png)
-
-### Análisis: componentes y comportamientos
-
-**Componentes**: son la forma de estructurar las **piezas** de nuestra página web para hacerlas escalables, nos ahorran tiempo y esfuerzo. Son **abstracciones de los elemento**s de nuestra página web para ser reusados las veces que necesitemos. (no copiar y pegar)
-
-Los componentes pueden trabajar de manera independiente a los demás, pero **con React todos los componentes tienen una conexión con el resto de componentes**, para que en conjunto puedan reaccionar al comportamiento de los usuarios.
-
-**Comportamiento**: **cómo actúan** nuestros componentes con las **interacciones** de los usuarios.
-
-![https://www.techdiagonal.com/wp-content/uploads/2019/08/React-components-blog-image.jpg](https://www.techdiagonal.com/wp-content/uploads/2019/08/React-components-blog-image.jpg)
-
-## Cambios en React 18: ReactDOM.createRoot
-
-React 18 fue publicado el 29 de marzo de 2022. Sus cambios más importantes van a ayudar muchísimo para optimizar el render e hidratación de aplicaciones o componentes de React en el DOM. El más importante, crucial y significativo fue la migración de ReactDOM.render a ReactDOM.createRoot.
-
-En la próxima clase vamos a usar Create React App, una de las herramientas más populares para instalar un entorno de desarrollo con React.js de forma muy rápida. No hay absolutamente ningún problema si decides usar React 18. Solo ten en consideración los cambios para hacer el render principal de tu aplicación.
-
-- **Migración de ReactDOM.render a ReactDOM.createRoot**
-    
-    ```jsx
-    //antes
-    const root = document.getElementById('root');
-    ReactDOM.render(e(LikeButton), root);
-    
-    ReactDOM.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>,
-      document.getElementById('root')
-    );
-    
-    //React 18
-    const rootElement = document.getElementById('root');
-    const root = ReactDom.createRoot(rootElement);
-    root.render(e(LikeButton));
-    
-    const rootElement = document.getElementById('root');
-    const root = ReactDom.createRoot(rootElement);
-    
-    root.render(
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    );
-    ```
-    
-
-## Instalación con Create React App
-
-Una manera muy sencilla de crear un proyecto con React es utilizando Create React App, así puedes iniciar un proyecto sin preocuparte por la configuración de herramientas como webpack o babel.
-
-💡 Aunque siempre será mejor si nosotros hacemos esta configuración desde cero, ya que tendremos mayor control de todo e incluso nuestra aplicación tendría un mejor rendimiento.
-
-### Maneras de instalar React
-
-Existen varias formas de trabajar con React, cada una tiene sus ventajas y desventajas, siempre que trabajemos con React necesitaremos las dependencias react y react-dom.
-
-- **React en JavaScript vanilla**
-    
-    Podemos importar los scripts del código fuente de React, existen las versiones para desarrollo que nos facilita debuggear y para producción que está optimizada para el producto final.
-    
-    React con JavaScript vanilla casi no se usa, lo ideal es crear un entorno de desarrollo que facilite nuestro trabajo.
-    
-    [Agregar React a un sitio web - React](https://es.reactjs.org/docs/add-react-to-a-website.html)
-    
-    ```html
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>React en js </title>
-    </head>
-    <body>
-        <div id="like_button_container"></div>
-        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-        <script>
-            'use strict';
-    
-            //crea el elemento
-            const e = React.createElement;
-    
-            class LikeButton extends React.Component {
-                constructor(props) {
-                super(props);
-                this.state = { liked: false };
-                }
-    
-                render() {
-                    if (this.state.liked) {
-                        return 'You liked this.';
-                    }
-    
-                    return e(
-                        'button',
-                        { onClick: () => this.setState({ liked: true }) },
-                        'Like'
-                    );
-                }
-            }
-            
-            const domContainer = document.querySelector('#like_button_container');
-            const root = ReactDOM.createRoot(domContainer);
-            root.render(e(LikeButton));
-            
-        </script>
-    </body>
-    </html>
-    ```
-    
-- **Configuración manual desde cero (forma profesional)**
-    
-    npx esta en la pc si tenemos instalado node y npm
-    
-    Nos permite instalar de manera temporal lo que necesitamos.
-    Siempre tendremos su versión actualizada
-    
-    ```bash
-    
-    npx create-react-app nombre-del-proyecto 
-    ```
-    
-    *npx create-react-app nombre-del-proyecto --template typescript* 
-    para typescript y en unos instantes tendremos un entorno de desarrollo totalmente configurado para comenzar a trabajar.
-    
-
-### Entorno de Create React App
-
-Dentro de este entorno tenemos un archivo **package.json** en el que se encuentran nuestros scripts, dependencias y meta datos de nuestro proyecto, 
-
-**"react-scripts":** nos configura todo, pero no tan optimizado como si hiciéramos todo manual con webpack y babel
-
-También tendremos dos carpetas principales:
-
-**public**/: Es la carpeta pública en donde tendremos nuestro archivo HTML y algunos assets
-
-**src**/: Es la carpeta fuente, en donde tendremos todos nuestros archivos de trabajo
-Dentro del index.html siempre tendremos un div con un id, como root que será la raíz de nuestro proyecto, y la usaremos para empezar a construir con JavaScript:
-
-- **¿Cómo inicializar nuestro servidor?**
-    
-    Para iniciar el entorno de desarrollo podemos ejecutar el comando **npm start,** con esto tendremos nuestro servidor corriendo en el puerto 3000 y también se refrescará automáticamente con cualquier cambio hecho en el proyecto. (A excepción de los cambios hechos en el archivo index.js).
-    
-
-# Fundamentos de React: maquetación
+# Maquetación
 
 ## JSX: componentes vs. elementos (y props vs. atributos)
 
@@ -606,9 +394,9 @@ A TodoList le mandamos si está completa la tarea o no entonces nos va a aparece
       ))}
 ```
 
-![Untitled](TodoApp%20React%20js%20534285bcbc3c4c0b92db602e051818d4/Untitled%203.png)
+![Untitled](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/Untitled.png)
 
-# Fundamentos de React: interacción
+# Interacción
 
 ## Manejo de eventos
 
@@ -934,7 +722,7 @@ const deleteTodo = (text) => {
 onClick={ props.onDeleted }>
 ```
 
-# Fundamentos de React: escalabilidad
+# Escalabilidad
 
 ## Organización de archivos y carpetas
 
@@ -1260,7 +1048,7 @@ console.log('antes');
   console.log('despues');
 ```
 
-![Untitled](TodoApp%20React%20js%20534285bcbc3c4c0b92db602e051818d4/Untitled%204.png)
+![Untitled](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/Untitled%201.png)
 
 ### Condiciones para nuestro hook de efecto
 
@@ -1579,7 +1367,7 @@ const { value } = React.useContext(Contexto)
 
 Los portales nos permiten **teletransportar componentes** a otro nodo de HTML, y seguir comunicándose con otros componentes como si estuviera en el mismo nodo.
 
-![Untitled](TodoApp%20React%20js%20534285bcbc3c4c0b92db602e051818d4/Untitled%205.png)
+![Untitled](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/Untitled%202.png)
 
 Se emplean en ocasiones donde los estilos CSS restringen los elementos. Por ejemplo, problemas de apilamiento `z-index` y desbordamiento `overflow`.
 
@@ -1599,3 +1387,28 @@ Nuestro botón tiene que abrir un modal para crear nuevos TODOs
 Algo muy importante al crear formularios es tener en cuenta que React funciona un poco diferente al HTML, ya que en HTML conservan naturalmente algún estado interno.
 
 En React nosotros podemos mutar el estado de nuestros componentes con el hook de estado, un componente controlado es simplemente un componente en el que sus valores son controlados por React.
+
+# Loading Skeletons
+
+## Nuevos compónentes
+
+Lo primero que vamos a hacer es crear 3 nuevos componentes para trabajarlos independientemente: **TodosError, TodosLoading** y **EmptyTodos**
+.
+
+![carbon-04032f89-02c0-4cf1-b6aa-1e64bb525933.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon-04032f89-02c0-4cf1-b6aa-1e64bb525933.webp)
+
+## Maquetación
+
+Llegó el momento de Maquetar. Debemos definir qué elementos necesitamos para el esqueleto y luego les daremos estilos con CSS.
+
+![carbon (3)-bf37a90a-1f86-4d07-b6f4-84e6e24a6827.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon_(3)-bf37a90a-1f86-4d07-b6f4-84e6e24a6827.webp)
+
+## Definición de Estilos
+
+Llegó el momento de Maquetar. Debemos definir qué elementos necesitamos para el esqueleto y luego les daremos estilos con CSS.
+
+![carbon (4)-4915f59e-9f35-47dd-acd1-62cf7b739278.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon_(4)-4915f59e-9f35-47dd-acd1-62cf7b739278.webp)
+
+![carbon (5)-8ce49083-b052-4ec5-a0ba-d3a4382f0843.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon_(5)-8ce49083-b052-4ec5-a0ba-d3a4382f0843.webp)
+
+![carbon (7)-f7a6159f-dc51-4b3f-b8d3-a0899cc9aef1.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon_(7)-f7a6159f-dc51-4b3f-b8d3-a0899cc9aef1.webp)
