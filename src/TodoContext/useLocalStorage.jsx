@@ -29,7 +29,7 @@ function useLocalStorage(itemName, initialValue) {
             } finally {
                 setLoading(false);
             }
-        }, 1000);
+        }, 3000);
     });
 
     // SAVE NEW TODOs ===========
