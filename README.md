@@ -8,3 +8,9 @@ Includes search, mark complete, and delete functionality. Practice work on handl
 
 👀 → See on GH-pages: ejmz216.github.io/todo-app-react/
 
+![screencapture-ejmz216-github-io-todo-app-react-2022-12-12-18_29_26](https://user-images.githubusercontent.com/67802793/207181815-ec66d3da-e179-495e-890d-26bec4128c22.png)
+
+![screencapture-ejmz216-github-io-todo-app-react-2022-12-12-18_30_20](https://user-images.githubusercontent.com/67802793/207181848-5fe8ab5e-eeb7-4ab4-9667-ae6b6d2ff090.png)
+
+![screencapture-ejmz216-github-io-todo-app-react-2022-12-12-18_30_34](https://user-images.githubusercontent.com/67802793/207181933-19b55199-cf47-4b14-b4bf-c4b0740bc5b9.png)
+
