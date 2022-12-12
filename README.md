@@ -1,6 +1,6 @@
 # Todo App React.js
 
-# Documentación
+# <details><summary><h2>Documentación</summary></h2>
 
 [React - Una biblioteca de JavaScript para construir interfaces de usuario](https://es.reactjs.org/)
 
@@ -32,371 +32,373 @@
     
     export default TodoCounter
     ```
-    
+  </details>    
 
-# Maquetación
+# <details><summary><h2>Maquetación</summary></h2>
 
-## JSX: componentes vs. elementos (y props vs. atributos)
+  ## JSX: componentes vs. elementos (y props vs. atributos)
 
-JSX es una extensión de JavaScript creada por Facebook para usarse con React.js. Nos presenta muchas ventajas el trabajar con elementos y componentes muy similar a la sintaxis de HTML.
+  JSX es una extensión de JavaScript creada por Facebook para usarse con React.js. Nos presenta muchas ventajas el trabajar con elementos y componentes muy similar a la sintaxis de HTML.
 
-La función que JSX tiene es de ser un preprocesador y transformar el código a JavaScript.
+  La función que JSX tiene es de ser un preprocesador y transformar el código a JavaScript.
 
-💡 JSX es solamente azúcar sintáctica para el método React.createElement(component, props, ...children) de React.
+  💡 JSX es solamente azúcar sintáctica para el método React.createElement(component, props, ...children) de React.
 
-Parece HTML pero no lo es. 
+  Parece HTML pero no lo es. 
 
-```jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+  ```jsx
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
+  import reportWebVitals from './reportWebVitals';
 
-//renderizamos el componente creado en App
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-```
-
-### ¿Cómo crear un componente?
-
-Existen varias formas de crear un componente en React, por convención siempre los creamos utilizando PascalCase (La primera letra de cada palabra en mayúscula y juntas).
-
-- **Crear un componente con clases**
-    
-    Este es el modo que se empleaba antes, ahora ya casi nadie la utiliza, pero es bueno saber cómo funciona, por si llegamos a trabajar con proyectos que las usen, con el método render podemos renderizar el JSX que retorna nuestra clase.
-    
-    ```jsx
-    class Componente extends React.Component {
-    	render() {
-    		return (
-    		    // JSX
-    		)
-    	}
-    }
-    ```
-    
-
-### **Crear un componente con funciones**
-
-Los componentes funcionales son los más utilizados hoy en día, ya que nos permiten controlar el ciclo de vida mucho más fácil con los **hooks de React:**
-
-```jsx
-function Component() {
-    return (
-        // JSX
-    )
-} 
-
-// Utilizando arrow function
-const Component = () => {
-    return(
-        // JSX
-    )
-}
-```
-
-Podemos usar variables
-
-```jsx
-<img src={logo} className="App-logo" alt="logo" />
-```
-
-### Componentes vs. Elementos
-
-Los componentes son invisibles para HTML, pero no para React, de hecho React utiliza los componentes para renderizar, y optimizar los re-renderizados.
-
-- **Componente**
-    
-    Un componente es una pieza de código que describe una parte reutilizable de la interfaz, recibe propiedades y retornan elementos, dentro de los componentes podemos utilizar variables de JavaScript con ayuda de las llaves {}.
-    
-    ```jsx
-    const Component = () => {
-        const titulo = Soy un título;
-        
-        return(
-            <h1>{titulo}</h1>
-        )
-    }
-    ```
-    
-- **Elemento**
-    
-    Un elemento es lo que devuelve un componente, es una representación de un nodo en el DOM. Lo que renderiza React
-    
-    ```html
-    <h1>Soy un título</h1>
-    ```
-    
-
-### Propiedades vs. Atributos
-
-La diferencia principal es que un atributo no se puede **modificar** y una propiedad si, ya que los atributos son de HTML y las propiedades son de JavaScript..
-
-- **Atributo**
-    
-    Los atributos los pueden tener las etiquetas de HTML.
-    
-    ```html
-    <!-- Por ejemplo el atributo class -->
-        <h1 class="titulo">Soy un título</h1>
-    ```
-    
-- **Propiedad**
-    
-    Las propiedades las pueden recibir los elementos y componentes en React.
-    
-    ```jsx
-    const Component = () => {
-        return(
-            <h1 className="titulo">
-                Soy un titulo
-            </h1>
-        )
-    }
-    ```
-    
-
-Es importante notar que algunos atributos de HTML se escriben diferentes como propiedades, por ejemplo; el atributo class de HTML no se debe utilizar como propiedad de una clase o elemento de React, porque class es una palabra reservada para crear clases en JavaScript, en su lugar utilizamos **className**.
-
-### Pasando propiedades a nuestros componentes
-
-En index.js. Esto no es un atributo. Es una propiedad
-
-```jsx
-<App saludo="Hola" />
-```
-
-En App.js lo recibimos por parámetro.
-
-Por convención les decimos propiedad **props**
-
-```jsx
-function App(props) {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {props.saludo}
-        </a>
-      </header>
-    </div>
+  //renderizamos el componente creado en App
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   );
-}
-```
+  ```
 
-### Propiedad children
+  ### ¿Cómo crear un componente?
 
-También podemos utilizar los componentes de React como etiquetas abiertas, para pasarle contenido, elementos o incluso otros componentes, la manera de acceder a ellos es con la propiedad especial children.
+  Existen varias formas de crear un componente en React, por convención siempre los creamos utilizando PascalCase (La primera letra de cada palabra en mayúscula y juntas).
 
-```jsx
-//index.js
-<App> Buenassss </App>
+  - **Crear un componente con clases**
+      
+      Este es el modo que se empleaba antes, ahora ya casi nadie la utiliza, pero es bueno saber cómo funciona, por si llegamos a trabajar con proyectos que las usen, con el método render podemos renderizar el JSX que retorna nuestra clase.
+      
+      ```jsx
+      class Componente extends React.Component {
+        render() {
+          return (
+              // JSX
+          )
+        }
+      }
+      ```
+      
 
-//App.js
-{props.children}
-```
+  ### **Crear un componente con funciones**
 
-## Componentes de TODO Machine
+  Los componentes funcionales son los más utilizados hoy en día, ya que nos permiten controlar el ciclo de vida mucho más fácil con los **hooks de React:**
 
-Necesitamos crear
+  ```jsx
+  function Component() {
+      return (
+          // JSX
+      )
+  } 
 
-- **Counter:** para llevar un conteo de las tareas totales y las completadas.
-- **Search**: para filtrar los TODOs de la lista.
-- **List**: en donde tendremos cada uno de los TODOs.
-- **Item**: será cada uno de los TODOs.
-- **Add Todo**: botón para agregar un nuevo TODO.
+  // Utilizando arrow function
+  const Component = () => {
+      return(
+          // JSX
+      )
+  }
+  ```
 
-Adicionalmente, tendremos que crear un modal para ingresar los datos del nuevo TODO (Lo veremos más adelante).
+  Podemos usar variables
 
-Para empezar a trabajar en el código, primero eliminaremos algunos archivos que no son necesarios para nuestra aplicación, solamente dejaremos dentro de nuestra carpeta `src/` los archivos `index.js`, `App.js` y los estilos.
+  ```jsx
+  <img src={logo} className="App-logo" alt="logo" />
+  ```
 
-```jsx
-function App() {
-  return (
-      <TodoCounter />    
+  ### Componentes vs. Elementos
+
+  Los componentes son invisibles para HTML, pero no para React, de hecho React utiliza los componentes para renderizar, y optimizar los re-renderizados.
+
+  - **Componente**
+      
+      Un componente es una pieza de código que describe una parte reutilizable de la interfaz, recibe propiedades y retornan elementos, dentro de los componentes podemos utilizar variables de JavaScript con ayuda de las llaves {}.
+      
+      ```jsx
+      const Component = () => {
+          const titulo = Soy un título;
+          
+          return(
+              <h1>{titulo}</h1>
+          )
+      }
+      ```
+      
+  - **Elemento**
+      
+      Un elemento es lo que devuelve un componente, es una representación de un nodo en el DOM. Lo que renderiza React
+      
+      ```html
+      <h1>Soy un título</h1>
+      ```
+      
+
+  ### Propiedades vs. Atributos
+
+  La diferencia principal es que un atributo no se puede **modificar** y una propiedad si, ya que los atributos son de HTML y las propiedades son de JavaScript..
+
+  - **Atributo**
+      
+      Los atributos los pueden tener las etiquetas de HTML.
+      
+      ```html
+      <!-- Por ejemplo el atributo class -->
+          <h1 class="titulo">Soy un título</h1>
+      ```
+      
+  - **Propiedad**
+      
+      Las propiedades las pueden recibir los elementos y componentes en React.
+      
+      ```jsx
+      const Component = () => {
+          return(
+              <h1 className="titulo">
+                  Soy un titulo
+              </h1>
+          )
+      }
+      ```
+      
+
+  Es importante notar que algunos atributos de HTML se escriben diferentes como propiedades, por ejemplo; el atributo class de HTML no se debe utilizar como propiedad de una clase o elemento de React, porque class es una palabra reservada para crear clases en JavaScript, en su lugar utilizamos **className**.
+
+  ### Pasando propiedades a nuestros componentes
+
+  En index.js. Esto no es un atributo. Es una propiedad
+
+  ```jsx
+  <App saludo="Hola" />
+  ```
+
+  En App.js lo recibimos por parámetro.
+
+  Por convención les decimos propiedad **props**
+
+  ```jsx
+  function App(props) {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {props.saludo}
+          </a>
+        </header>
+      </div>
+    );
+  }
+  ```
+
+  ### Propiedad children
+
+  También podemos utilizar los componentes de React como etiquetas abiertas, para pasarle contenido, elementos o incluso otros componentes, la manera de acceder a ellos es con la propiedad especial children.
+
+  ```jsx
+  //index.js
+  <App> Buenassss </App>
+
+  //App.js
+  {props.children}
+  ```
+
+  ## Componentes de TODO Machine
+
+  Necesitamos crear
+
+  - **Counter:** para llevar un conteo de las tareas totales y las completadas.
+  - **Search**: para filtrar los TODOs de la lista.
+  - **List**: en donde tendremos cada uno de los TODOs.
+  - **Item**: será cada uno de los TODOs.
+  - **Add Todo**: botón para agregar un nuevo TODO.
+
+  Adicionalmente, tendremos que crear un modal para ingresar los datos del nuevo TODO (Lo veremos más adelante).
+
+  Para empezar a trabajar en el código, primero eliminaremos algunos archivos que no son necesarios para nuestra aplicación, solamente dejaremos dentro de nuestra carpeta `src/` los archivos `index.js`, `App.js` y los estilos.
+
+  ```jsx
+  function App() {
+    return (
+        <TodoCounter />    
+        <TodoSearch />
+        <TodoList>
+          <TodoItem />
+        </TodoList>
+        <CreateTodoButton />
+    );
+  }
+
+  export default App;
+  ```
+
+  Una vez iniciamos el proyecto nos aparecerá un error como el siguiente: SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag., esto es porque solamente se puede regresar un solo componente al trabajar con JSX, si queremos regresar varios necesitamos encerrarlos en un solo elemento padre.
+
+  Utilizar el componente **Fragment**, que será invisible al momento de renderizar nuestros elementos en el DOM.
+
+  - **Maneras de utilizar Fragment en React**
+      
+      ```jsx
+      import React from "react
+      
+      function App() {
+        return (
+          <React.Fragment>
+              ...
+          </React.Fragment>
+        );
+      }
+      
+      // Desestructurándolo desde React
+      import { Fragment } from "react
+      
+      function App() {
+        return (
+          <Fragment>
+              ...
+          </Fragment>
+        );
+      }
+      ```
+      
+      Esta es la más común. Envolviendo nuestros elementos dentro de etiquetas vacías, que es lo equivalente a React.Fragment
+      
+      ```jsx
+      function App() {
+        return (
+          <>
+              ...
+          </>
+        );
+      }
+      ```
+      
+
+  ### Creamos los componentes con su respectivo contenido y luego los importamos
+
+  - TodoCounter.js
+      
+      Va  a llevar la cuenta de las tareas realizadas y pendientes
+      
+      ```jsx
+      import React from 'react'
+      
+      function TodoCounter() {
+          return (
+              <h2>Has completado 2 de 3 </h2>
+          )
+      }
+      
+      export { TodoCounter }
+      /* utilizamos export nombrado para obligarnos a usar los nombres 
+      correctos que son los descriptivos */
+      ```
+      
+  - TodoList.js
+      
+      ```jsx
+      import React from 'react'
+      
+      function TodoList(props) {
+          return (
+              <section>
+                  <ul>
+                      {props.children}
+                  </ul>
+              </section>
+          )
+      }
+      
+      export { TodoList }
+      ```
+      
+  - TodoItem.js
+      
+      ```jsx
+      import React from 'react'
+      
+      function TodoItem(props) {
+          return (
+              <li>
+                  <span>C</span>
+                  <p>{props.text}</p>
+                  <span>X</span>
+              </li>
+          )
+      }
+      
+      export { TodoItem }
+      ```
+      
+
+  ```jsx
+  //App.js
+  import { TodoCounter } from "./components/TodoCounter";
+  import { TodoSearch } from "./components/TodoSearch";
+  import { TodoList } from "./components/TodoList";
+  import { TodoItem } from "./components/TodoItem";
+  import { CreateTodoButton } from "./components/CreateTodoButton";
+  ```
+
+  Para que recorra los TODOs
+
+  ```jsx
+  const todos = [
+    { text:'Cortar cebolla', completed: false },
+    { text:'Llorar con la llorona', completed: false },
+    { text:'Curso React', completed: false },
+  ];
+
+  function App() {
+    return (
+      <>
+      <TodoCounter />
       <TodoSearch />
       <TodoList>
-        <TodoItem />
+  /* esto lo mandamos en el children */
+        { todos.map( todo => (
+          <TodoItem key={todo.text} text={todo.text} />
+        ))}
       </TodoList>
       <CreateTodoButton />
-  );
-}
+      </>
+    );
+  }
+  ```
 
-export default App;
-```
+  Le pasamos key, ya que de lo contrario en consola nos mostraría el error 
 
-Una vez iniciamos el proyecto nos aparecerá un error como el siguiente: SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag., esto es porque solamente se puede regresar un solo componente al trabajar con JSX, si queremos regresar varios necesitamos encerrarlos en un solo elemento padre.
+  Warning: Each children in a list should have a unic "key" prop.
 
-Utilizar el componente **Fragment**, que será invisible al momento de renderizar nuestros elementos en el DOM.
+  Esto es porque cuando renderizamos varios elementos en una lista debemos que pasarle una propiedad especial a cada item, que es key, esta propiedad ayuda a React para mantener un registro de los elementos que han cambiado, y saber cuál elemento es cuál, también es importante que esta propiedad no se repita en ningún otro item.
 
-- **Maneras de utilizar Fragment en React**
-    
-    ```jsx
-    import React from "react
-    
-    function App() {
-      return (
-        <React.Fragment>
-            ...
-        </React.Fragment>
-      );
-    }
-    
-    // Desestructurándolo desde React
-    import { Fragment } from "react
-    
-    function App() {
-      return (
-        <Fragment>
-            ...
-        </Fragment>
-      );
-    }
-    ```
-    
-    Esta es la más común. Envolviendo nuestros elementos dentro de etiquetas vacías, que es lo equivalente a React.Fragment
-    
-    ```jsx
-    function App() {
-      return (
-        <>
-            ...
-        </>
-      );
-    }
-    ```
-    
+  ## CSS en React
 
-### Creamos los componentes con su respectivo contenido y luego los importamos
+  Existen varias [formas de agregar estilos en React](https://platzi.com/blog/react-css/):
 
-- TodoCounter.js
-    
-    Va  a llevar la cuenta de las tareas realizadas y pendientes
-    
-    ```jsx
-    import React from 'react'
-    
-    function TodoCounter() {
-        return (
-            <h2>Has completado 2 de 3 </h2>
-        )
-    }
-    
-    export { TodoCounter }
-    /* utilizamos export nombrado para obligarnos a usar los nombres 
-    correctos que son los descriptivos */
-    ```
-    
-- TodoList.js
-    
-    ```jsx
-    import React from 'react'
-    
-    function TodoList(props) {
-        return (
-            <section>
-                <ul>
-                    {props.children}
-                </ul>
-            </section>
-        )
-    }
-    
-    export { TodoList }
-    ```
-    
-- TodoItem.js
-    
-    ```jsx
-    import React from 'react'
-    
-    function TodoItem(props) {
-        return (
-            <li>
-                <span>C</span>
-                <p>{props.text}</p>
-                <span>X</span>
-            </li>
-        )
-    }
-    
-    export { TodoItem }
-    ```
-    
+  - Hoja de estilos externa: podemos crear nuestro archivo CSS con todos nuestros estilos y después importarlo.
+  - Estilos en línea: así como en HTML, también podemos agregar estilos en línea, pero con una diferente sintaxis
 
-```jsx
-//App.js
-import { TodoCounter } from "./components/TodoCounter";
-import { TodoSearch } from "./components/TodoSearch";
-import { TodoList } from "./components/TodoList";
-import { TodoItem } from "./components/TodoItem";
-import { CreateTodoButton } from "./components/CreateTodoButton";
-```
+  A TodoList le mandamos si está completa la tarea o no entonces nos va a aparecer el check
 
-Para que recorra los TODOs
+  ```jsx
+  { todos.map( todo => (
+          <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
+        ))}
+  ```
 
-```jsx
-const todos = [
-  { text:'Cortar cebolla', completed: false },
-  { text:'Llorar con la llorona', completed: false },
-  { text:'Curso React', completed: false },
-];
+  ![Untitled](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/Untitled.png)
+</details>
 
-function App() {
-  return (
-    <>
-    <TodoCounter />
-    <TodoSearch />
-    <TodoList>
-/* esto lo mandamos en el children */
-      { todos.map( todo => (
-        <TodoItem key={todo.text} text={todo.text} />
-      ))}
-    </TodoList>
-    <CreateTodoButton />
-    </>
-  );
-}
-```
 
-Le pasamos key, ya que de lo contrario en consola nos mostraría el error 
-
-Warning: Each children in a list should have a unic "key" prop.
-
-Esto es porque cuando renderizamos varios elementos en una lista debemos que pasarle una propiedad especial a cada item, que es key, esta propiedad ayuda a React para mantener un registro de los elementos que han cambiado, y saber cuál elemento es cuál, también es importante que esta propiedad no se repita en ningún otro item.
-
-## CSS en React
-
-Existen varias [formas de agregar estilos en React](https://platzi.com/blog/react-css/):
-
-- Hoja de estilos externa: podemos crear nuestro archivo CSS con todos nuestros estilos y después importarlo.
-- Estilos en línea: así como en HTML, también podemos agregar estilos en línea, pero con una diferente sintaxis
-
-A TodoList le mandamos si está completa la tarea o no entonces nos va a aparecer el check
-
-```jsx
-{ todos.map( todo => (
-        <TodoItem key={todo.text} text={todo.text} completed={todo.completed} />
-      ))}
-```
-
-![Untitled](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/Untitled.png)
-
-# Interacción
+# <details><summary><h2>Interacción<summary><h2>
 
 ## Manejo de eventos
 
@@ -721,8 +723,9 @@ const deleteTodo = (text) => {
 //en todoItem
 onClick={ props.onDeleted }>
 ```
+</details>
 
-# Escalabilidad
+# <details><summary><h2>Escalabilidad</h2></summary>
 
 ## Organización de archivos y carpetas
 
@@ -1359,9 +1362,9 @@ const { value } = React.useContext(Contexto)
     
     export { TodoCounter }
     ```
-    
+  </details>
 
-# Modales y formularios
+# <details><summary><h2>Modales y formularios</summary></h2>
 
 ## Portales: teletransportación de componentes
 
@@ -1387,8 +1390,9 @@ Nuestro botón tiene que abrir un modal para crear nuevos TODOs
 Algo muy importante al crear formularios es tener en cuenta que React funciona un poco diferente al HTML, ya que en HTML conservan naturalmente algún estado interno.
 
 En React nosotros podemos mutar el estado de nuestros componentes con el hook de estado, un componente controlado es simplemente un componente en el que sus valores son controlados por React.
+</details>
 
-# Loading Skeletons
+# <details><summary><h2>oading Skeletons</h2></summary>L
 
 ## Nuevos compónentes
 
@@ -1412,3 +1416,5 @@ Llegó el momento de Maquetar. Debemos definir qué elementos necesitamos para e
 ![carbon (5)-8ce49083-b052-4ec5-a0ba-d3a4382f0843.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon_(5)-8ce49083-b052-4ec5-a0ba-d3a4382f0843.webp)
 
 ![carbon (7)-f7a6159f-dc51-4b3f-b8d3-a0899cc9aef1.webp](Todo%20App%20React%20js%204340e94ac78e4be9a41ff0d58e068dd2/carbon_(7)-f7a6159f-dc51-4b3f-b8d3-a0899cc9aef1.webp)
+
+ </details>
