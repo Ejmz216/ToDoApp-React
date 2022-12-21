@@ -1,5 +1,4 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import './TodoCounter.css';
 // Style___________________________________________________________________
 var today = new Date();
@@ -22,8 +21,7 @@ if (currentTime < 12) {
 var now = today.toLocaleDateString('en-BR', options);
 //_________________________________________________________________________
 
-function TodoCounter() {
-  const { totalTodos, completedTodos } = React.useContext(TodoContext);
+function TodoCounter({ totalTodos, completedTodos }) {
   return (
     <>
       <h1>{greeting}!</h1>

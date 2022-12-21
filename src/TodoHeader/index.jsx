@@ -1,11 +1,11 @@
 import React from 'react';
 import './TodoHeader.css'
 
-function TodoHeader(props) {
+function TodoHeader({children}) {
   return (
-    <section className="TodoHeader">
-      {props.children}
-    </section>
+    <header className="TodoHeader">
+      {children}
+    </header>
   );
 }
 
