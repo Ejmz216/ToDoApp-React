@@ -54,13 +54,18 @@ function App() {
           error={error}
           loading={loading}
           searchedTodos={searchedTodos}
+          totalTodos={totalTodos}
+          searchValue={searchValue}
 
           onError={() => <TodosError />}
           onLoading={() => <TodosLoading />}
           onEmptyTodos={() => <EmptyTodos />}
-          
-          
-          render={todo => (
+          onEmptySearchResults={
+            (searchValue) => <p><p className='initialText'>Hmmm...  </p> We couldn't find any matches for "<b>{searchValue}</b>".
+              <p>Double check your search for any typos or spelling errors - or try a different search term.</p>
+            </p>}
+        >
+          {todo => (
             <TodoItem
               key={todo.text}
               text={todo.text}
@@ -69,9 +74,7 @@ function App() {
               onDelete={() => deleteTodo(todo.text)}
             />
           )}
-        />
-
- 
+        </TodoList>
 
         {!!openModal && (
           <Modal>
