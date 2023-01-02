@@ -50,24 +50,28 @@ function App() {
           completedTodos={completedTodos}
         />
 
-        <TodoList>
-          {/*Mostramos un mensaje en caso de que ocurra algún error*/}
-          {error && <TodosError error={error} />}
-          {/* Mostramos un mensaje de cargando, cuando la aplicación está cargando lo sdatos */}
-          {loading && <TodosLoading />}
-          {/* Si terminó de cargar y no existen TODOs, se muestra un mensaje para crear el primer TODO */}
-          {(!loading && !searchedTodos.length && !error) && <EmptyTodos />}
+        <TodoList
+          error={error}
+          loading={loading}
+          searchedTodos={searchedTodos}
 
-          {searchedTodos.map(todo => (
+          onError={() => <TodosError />}
+          onLoading={() => <TodosLoading />}
+          onEmptyTodos={() => <EmptyTodos />}
+          
+          
+          render={todo => (
             <TodoItem
               key={todo.text}
               text={todo.text}
               completed={todo.completed}
-              onComplete={(() => completeTodo(todo.text))}
-              onDelete={(() => deleteTodo(todo.text))}
+              onComplete={() => completeTodo(todo.text)}
+              onDelete={() => deleteTodo(todo.text)}
             />
-          ))}
-        </TodoList>
+          )}
+        />
+
+ 
 
         {!!openModal && (
           <Modal>
