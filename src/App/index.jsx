@@ -39,7 +39,7 @@ function App() {
   return (
     <React.Fragment>
 
-      <TodoHeader>
+      <TodoHeader loading={loading}>
 
         <TodoSearch
           searchValue={searchValue}

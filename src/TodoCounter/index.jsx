@@ -21,12 +21,15 @@ if (currentTime < 12) {
 var now = today.toLocaleDateString('en-BR', options);
 //_________________________________________________________________________
 
-function TodoCounter({ totalTodos, completedTodos }) {
+function TodoCounter({ totalTodos, completedTodos, loading }) {
   return (
     <>
       <h1>{greeting}!</h1>
       <h2>{now}</h2>
-      <h2 className="TodoCounter">You have completed {completedTodos} out of {totalTodos} <b className='todoTitle'>ToDOs</b></h2>
+      <h2 
+        className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}>
+        You have completed {completedTodos} out of {totalTodos} <b className='todoTitle'>ToDOs</b>
+      </h2>
     </>
   );
 }
