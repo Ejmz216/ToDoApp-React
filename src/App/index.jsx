@@ -6,14 +6,14 @@ import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
-import { Modal } from "../Modal";
+import { EmptyTodos } from '../EmptyTodos';
 import { TodoForm } from '../TodoForm';
-import { CreateTodoButton } from '../CreateTodoButton';
-
 import { TodosError } from '../TodosError';
 import { TodosLoading } from '../TodosLoading';
-import { EmptyTodos } from '../EmptyTodos';
 
+import { CreateTodoButton } from '../CreateTodoButton';
+import { Modal } from "../Modal";
+import { ChangeAlert } from '../ChangeAlert';
 import './App.css';
 
 /* ================================= APP ==================================== */
@@ -33,7 +33,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
-
+    sincronizeTodos,
   } = useTodos();
 
   return (
@@ -86,11 +86,12 @@ function App() {
         )}
         <CreateTodoButton
           setOpenModal={setOpenModal}
-          openModal={openModal}
+        />
+        <ChangeAlert
+          sincronize={sincronizeTodos}
         />
 
       </TodoHeader>
-
       {/* </MainPage> */}
     </React.Fragment>
   );
