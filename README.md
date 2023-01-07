@@ -5,7 +5,7 @@ Interactive webapp with React.js, works as a task list.
 Includes search, mark complete, and delete functionality. Practice work on handling components, properties, state and effects. Storage of information in Local Storage, implementation of React Context to communicate components and teleportation of components with React Portals.
 
 # Vesion 2.0
-In the lastest update, there are some changes in the structure of the proje and the code is optimized. The use of component composition is prioritized instead of Contexts, since being a small application, createContext would not be essential.
+In the lastest update, there are some changes in the structure of the project and the code is optimized. The use of component composition is prioritized instead of Contexts, since being a small application, createContext would not be essential.
 The application listens if there was a change in the storage of TODOs in another window and advises the user to update his view.
 Finally, errors in the search for TODOs have been corrected, such as the search for non-existent TODOs or duplication in content creation. For all this, the HOC and Render props were analyzed. However, react hooks are implemented.
 
